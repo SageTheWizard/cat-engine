@@ -15,8 +15,8 @@ class Pinger(Toy):
         self.test("I'm also gonna test that 1 == 1!", 1 == 1)
 
 class Brutus(Cat):
-    def __init__(self):
-        super().__init__("Brutus")
+    def __init__(self, name : str = "Brutus"):
+        super().__init__(name)
     
     def prepare(self):
         self.toybox["Pinger"] = Pinger()
