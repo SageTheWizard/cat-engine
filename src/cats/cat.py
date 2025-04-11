@@ -1,6 +1,5 @@
 from enum import Enum
 from datetime import datetime
-import yaml
 
 """
 Parent class that all CATs will inherit from
@@ -30,7 +29,7 @@ class Cat():
         LOGS            = "Logs"
     
     """ Init just initializes the default object members """
-    def __init__(self, name : str):
+    def __init__(self, name : str = "Meow"):
         """ 
         The name of the cat, maybe name it something useful, or
         cute, I don't care 
@@ -98,8 +97,8 @@ class Cat():
         
         full_report[Cat.ReportField.PASS_FAIL_RATIO.value] = full_report[self.ReportField.PASSES.value] / (full_report[self.ReportField.PASSES.value] + full_report[self.ReportField.FAILURES.value])
         full_report[Cat.ReportField.RESULT.value] = Cat.Result.PASS.value if full_report[self.ReportField.FAILURES.value] == 0 else Cat.Result.FAIL.value
-
-        return yaml.dump(full_report)
+        
+        return full_report
 
 class Toy():
     class LogLine():
